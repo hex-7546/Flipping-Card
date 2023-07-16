@@ -1,0 +1,312 @@
+/* Imported Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Break Point for smaller screens - 760 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: #121321;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    transform: translate(-250px, -150px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    transform: translate(250px, 150px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+}
+
+.container {
+    height: 300px;
+    width: 495px;
+    position: relative;
+    z-index: 100;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+.container:hover {
+    transform: rotateY(180deg);
+}
+
+.container .card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backface-visibility: hidden;
+}
+
+
+.front-face header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.front-face .logo img{
+    width: 100px;
+    margin-right: 10px;
+}
+
+.front-face .chip {
+    width: 50px;
+}
+
+.front-face .card-details {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h6 {
+    font-size:1.15rem;
+    font-weight: 500;
+}
+
+.valid-date h6 {
+    font-size: 0.85rem;
+}
+
+.valid-date h5 {
+    font-size: 1.35rem;
+    font-weight: 200;
+    letter-spacing: 0.12rem;
+}
+
+h5.number {
+    font-size: 1.55rem;
+    letter-spacing: 0.12rem;
+}
+
+h5.name {
+    margin-top: 40px;
+    font-size: 1.25rem;
+    font-weight: 200;
+}
+
+/* Back Side of Card */
+
+.card.back-face {
+    border: none;
+    padding: 15px 25px 25px 25px;
+    transform: rotateY(180deg);
+}
+
+.card.back-face h6{
+    font-size: 0.7rem;
+}
+
+.card.back-face .magnetic-strip {
+    position: absolute;
+    height: 45px;
+    width: 100%;
+    background-color: #000;
+    left: 0;
+    top: 45px;
+}
+
+.card.back-face .signature {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 80px;
+    height: 45px;
+    width: 85%;
+    border-radius: 8px;
+    background: repeating-linear-gradient(
+        #fff,
+        #fff 3px,
+        #efefef 0px,
+        #efefef 9px
+    );
+}
+
+.signature i {
+    color: #000;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    background-color: #fff;
+    margin-right: -30px;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+.card.back-face h5 {
+    font-size: 0.75rem;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 760px) {
+    section::before {
+        height: 100px;
+        width: 100px;
+        transition: all ease .7s;
+    }
+    
+    section::after {
+        height: 100px;
+        width: 100px;
+        transition: all ease .7s;
+    }
+}
+
+@media (max-width: 620px) {
+    .container {
+        height: 250px;
+        width: 405px;
+    }
+    section::before {
+        transform: translate(-200px, -125px);
+    }
+    section::after {
+        transform: translate(200px, 125px);
+    }
+    .front-face .card-details {
+        margin-top: 20px;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+    
+    .valid-date h6 {
+        font-size: 0.65rem;
+    }
+    
+    .valid-date h5 {
+        font-size: 1.15rem;
+        letter-spacing: 0.05rem;
+    }
+    
+    h5.number {
+        font-size: 1.15rem;
+        letter-spacing: 0.08rem;
+    }
+    
+    h5.name {
+        margin-top: 20px;
+        font-size: 1.05rem;
+    }
+    .card.back-face h6{
+        font-size: 0.55rem;
+    }
+    .card.back-face .magnetic-strip {
+        height: 35px;
+        top: 35px;
+    }
+    .card.back-face .signature {
+        margin-top: 52px;
+        height: 40px;
+    }
+    
+    .signature i,
+    .card.back-face h5 {
+        font-size: 0.65rem;
+    }
+
+}
+
+@media (max-width: 510px) and (min-width: 320px) {
+    .container {
+        height: 170px;
+        width: 80%;
+    }
+    .container .card {
+        padding: 10px;
+    }
+    section::before {
+        height: 50px;
+        width: 50px;
+        transition: all ease .7s;
+        transform: translate(-120px, -75px);
+    }
+    
+    section::after {
+        height: 50px;
+        width: 50px;
+        transition: all ease .7s;
+        transform: translate(120px, 73px);
+    }
+    .front-face .logo img{
+        width: 70px;
+    }
+    
+    .front-face .chip {
+        width: 30px;
+    }
+    .front-face .card-details {
+        margin-top: 15px;
+    }
+    h6 {
+        font-size: 0.7rem;
+    }
+    
+    .valid-date h6 {
+        font-size: 0.45rem;
+    }
+    
+    .valid-date h5 {
+        font-size: 0.8rem;
+    }
+    
+    h5.number {
+        font-size: 0.85rem;
+        letter-spacing: 0.08rem;
+    }
+    h5.name {
+        margin-top: 20px;
+        font-size: 0.8rem;
+    }
+    .card.back-face h6{
+        font-size: 0.37rem;
+        margin-top: 5px;
+    }
+    .card.back-face .magnetic-strip {
+        height: 25px;
+        top: 30px;
+    }
+    .card.back-face .signature {
+        margin-top: 45px;
+        height: 30px;
+    }
+    
+    .signature i,
+    .card.back-face h5 {
+        font-size: 0.45rem;
+        margin-top: 10px;
+    }
+}
